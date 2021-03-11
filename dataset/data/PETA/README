@@ -1,0 +1,36 @@
+Description: 
+We orignize the orignal peta dataset into a unified dataset with new names.
+
+./images  
+the unifined pedestrian images, range from 00001.png to 19000.png
+
+./PETA.mat 
+the annotation file, which includes attribute names, experimental splits, original attribute annotations, attribute index used in the original paper.
+peta.attribute, the attribute names, totally 105 attributes.
+peta.data, matrix with shape [19000, 109], the first four coloumns include necessary information in the orignal single datasets, and the later ones are attribute annotations.
+   1'th coloumn: index of image, an integer which is consistent with image names. For example the integer "2" means the information in that row is about the image "00002.png" in new unified dataset.
+   2'th coloumn: global person identity in the unified dataset.
+   3'th coloumn: name index of each single dataset. 1-10 represents '3DPeS','CAVIAR4REID','CUHK','GRID','i-LID','MIT','PRID','SARC3D','TownCentre','VIPeR', respectively.
+   4'th coloumn: person identitity in the orignal datasets.
+   5-109'th coloumns: attribute annotations, 0 represents negative and 1 represents positive. Attributes are sorted as described in peta.attribute.
+peta.partion_attribute, the five times random splits.
+peta.selected_attribute, the index of attributes which are used in experiments. You can use the index value to extract the ground-truth attributes in peta.data.
+
+
+If you use the unified dataset, please cite papers listed as follows:
+@inproceedings{li2015multi,
+  title={Multi-attribute learning for pedestrian attribute recognition in surveillance scenarios},
+  author={Li, Dangwei and Chen, Xiaotang and Huang, Kaiqi},
+  booktitle={Pattern Recognition (ACPR), 2015 3rd IAPR Asian Conference on},
+  pages={111--115},
+  year={2015},
+  organization={IEEE}
+}
+@inproceedings{deng2014pedestrian,
+  title={Pedestrian attribute recognition at far distance},
+  author={Deng, Yubin and Luo, Ping and Loy, Chen Change and Tang, Xiaoou},
+  booktitle={Proceedings of the 22nd ACM international conference on Multimedia},
+  pages={789--792},
+  year={2014},
+  organization={ACM}
+}
